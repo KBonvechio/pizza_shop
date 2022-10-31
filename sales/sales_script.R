@@ -22,14 +22,15 @@ all_sales
 # called sales_data, then run the rest of the code
 
 # Answer
-# I was able to use the full_join() function to combine 12 of the 16 datasets.
-# However, there were some values in four of the datasets that had matching rows
-# with the dataset I was trying to join them with (i.e., each set of datasets had
-# some rows with identical values for each variable/column), so I had to 
-# use the bind_rows() function (also in dplyr) to add the final four datasets. I 
-# also used the select() function to remove the extra "date" column that was 
-# carried over from the merge with dataset_15. This is the only way I could get
-# the sales_data dataset to contain all 896 rows of data.
+# I was able to use the full_join() function to combine 12 of the 16 datasets in
+# a piping operation. However, there were some values in four of the datasets 
+# that had matching rows with the dataset I was trying to join them with (i.e.,
+# each set of datasets had some rows with identical values for each variable/
+# column), so I had to use the bind_rows() function (also in dplyr) to add the 
+# final four datasets. I also used the select() function to remove the extra 
+# "date" column that was carried over from the merge with dataset_15. This is
+# the only way I could get the sales_data dataset to contain all 896 rows of 
+# data.
 
 sales_data <- dataset_1 %>%
   full_join(dataset_2, by = c("day", "month", "year", "pizza", "number")) %>%
